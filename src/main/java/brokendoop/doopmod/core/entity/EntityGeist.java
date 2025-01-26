@@ -54,7 +54,7 @@ public class EntityGeist extends EntityMonster {
 		return false;
 	}
 
-	public String getEntityTexture() { //skin variants don't work rn, probably fix it in 7.3
+	public String getEntityTexture() { //skin variants don't work rn
 		if (this.isGeistAngry()) {
 			return "/assets/doopmod/textures/entity/geist_angry/" + this.getSkinVariant() + ".png";
 		} else if (this.isGeistShy()) {
@@ -230,6 +230,22 @@ public class EntityGeist extends EntityMonster {
 		}
         return false;
     }
+
+	public String getLivingSound() {
+		if (isGeistShy()) {
+			return "doopmod.geist.shy";
+		} else if (isGeistAngry()) {
+			return "doopmod.geist.angry";
+		}
+		return "doopmod.geist.idle";
+	}
+	protected String getDeathSound() {
+		return "doopmod.geist.death";
+	}
+
+	protected String getHurtSound() {
+		return "doopmod.geist.hurt";
+	}
 
 
 	public boolean isGeistShy() {
