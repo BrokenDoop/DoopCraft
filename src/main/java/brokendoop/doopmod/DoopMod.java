@@ -1,12 +1,15 @@
 package brokendoop.doopmod;
 
-import brokendoop.doopmod.core.DoopModEntities;
-import brokendoop.doopmod.core.DoopModSounds;
+import brokendoop.doopmod.core.*;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.render.texture.stitcher.TextureRegistry;
+import net.minecraft.client.sound.SoundRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
+
+import static net.minecraft.client.render.texture.stitcher.TextureRegistry.guiSpriteAtlas;
 
 
 public class DoopMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
@@ -22,13 +25,21 @@ public class DoopMod implements ModInitializer, GameStartEntrypoint, RecipeEntry
 	@Override
 	public void beforeGameStart() {
 		DoopModEntities.initEntities();
-		DoopModSounds.initializeSounds();
+		DoopModItems.initItems();
+		SoundRepository.registerNamespace(MOD_ID);
+		try {
+			TextureRegistry.initializeAllFiles(MOD_ID, guiSpriteAtlas, true);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override
 	public void afterGameStart() {
-
+		DoopModHudComponents.init();
+		DoopModMobInfo.initMobInfo();
 	}
+
 
 	@Override
 	public void onRecipesReady() {

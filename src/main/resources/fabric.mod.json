@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Doops Mod",
-  "description": "I am Learning I am a GOD.",
+  "description": "An assorted mod of random fun things.",
   "authors": [
     "Levi 'Doop' (BrokenDoop)"
   ],
@@ -29,6 +29,9 @@
 		],
 		"recipesReady": [
 			"brokendoop.doopmod.DoopMod"
+		],
+		"initModels": [
+			"brokendoop.doopmod.core.DoopModModels"
 		]
 	},
   "mixins": [

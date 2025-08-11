@@ -1,0 +1,32 @@
+{
+  "projectile.laser.shot": {
+    "subtitle": "subtitles.projectile.laser.shot",
+    "sounds": [
+      "projectile/laser/shot.wav"
+    ]
+  },
+  "projectile.laser.hit": {
+    "subtitle": "subtitles.projectile.laser.hit",
+    "sounds": [
+      "projectile/laser/hit.wav"
+    ]
+  },
+  "projectile.laser.bounce": {
+    "subtitle": "subtitles.projectile.laser.bounce",
+    "sounds": [
+      "projectile/laser/bounce.wav"
+    ]
+  },
+  "projectile.laser.pierce": {
+    "subtitle": "subtitles.projectile.laser.pierce",
+    "sounds": [
+      "projectile/laser/pierce.wav"
+    ]
+  },
+  "projectile.laser.sizzle": {
+    "subtitle": "subtitles.projectile.laser.sizzle",
+    "sounds": [
+      "projectile/laser/sizzle.wav"
+    ]
+  }
+}

@@ -11,7 +11,11 @@ public class DoopModConfig {
 
 	static {
 		properties.addCategory("IDs")
-			.addEntry("startingEntityID", 150);
+				.addEntry("startingItemID", 21700);
+
+
+		properties.addCategory("Gui")
+			.addEntry("attackGuiStyle", "both, bar, arrow, none", "both");
 
 		cfg = new TomlConfigHandler(MOD_ID, properties);
 	}

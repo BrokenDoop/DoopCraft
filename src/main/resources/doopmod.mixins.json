@@ -4,8 +4,14 @@
   "package": "brokendoop.doopmod.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ItemMixin",
+    "ItemToolAxeMixin",
+    "ItemToolSwordMixin",
+    "PlayerMixin",
+    "WorldMixin"
   ],
   "client": [
+    "MinecraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1

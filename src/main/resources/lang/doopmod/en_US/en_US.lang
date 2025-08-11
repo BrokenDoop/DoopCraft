@@ -1,5 +1,14 @@
 #Items
-
+item.doopmod.creative.blaster.name=Creative Blaster
+item.doopmod.creative.blaster.desc=Uses calibration items as ammo.
 
 #Blocks
+
+
+#Mobs
+doopmod.entity.zombie_crawling=Crawling Zombie
+
+#GuideBook
+doopmod.guidebook.section.mob.crawling_zombie.name=Crawling Zombie
+doopmod.guidebook.section.mob.crawling_zombie.desc=A more aggressive variant of the regular zombie. You would think losing your legs would at least slow you down, but it seems to have just made them angry!
 
