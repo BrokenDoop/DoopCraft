@@ -11,7 +11,8 @@
     "WorldMixin"
   ],
   "client": [
-    "MinecraftMixin"
+    "MinecraftMixin",
+    "PolygonMixin"
   ],
   "injectors": {
     "defaultRequire": 1

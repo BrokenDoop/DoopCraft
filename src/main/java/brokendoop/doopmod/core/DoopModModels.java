@@ -1,5 +1,6 @@
 package brokendoop.doopmod.core;
 
+import brokendoop.doopmod.DoopMod;
 import brokendoop.doopmod.client.renderer.*;
 import brokendoop.doopmod.core.entity.MobCremator;
 import brokendoop.doopmod.core.entity.MobExoskeleton;
@@ -48,9 +49,11 @@ public class DoopModModels implements ModelEntrypoint {
 	@Override
 	public void initEntityModels(EntityRenderDispatcher entityRenderDispatcher) {
 		//mobs
+		DoopMod.modPadding = true;
 		ModelHelper.setEntityModel(MobZombieCrawling.class, MobRendererCrawlingZombie::new);
 		ModelHelper.setEntityModel(MobExoskeleton.class, MobRendererExoskeleton::new);
 		ModelHelper.setEntityModel(MobCremator.class, MobRendererCremator::new);
+		DoopMod.modPadding = false;
 
 		//projectiles
 		ModelHelper.setEntityModel(ProjectileLaser.class, EntityRendererLaser::new);

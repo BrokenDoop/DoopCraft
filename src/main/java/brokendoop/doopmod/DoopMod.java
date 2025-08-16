@@ -16,6 +16,7 @@ import static net.minecraft.client.render.texture.stitcher.TextureRegistry.parti
 public class DoopMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
     public static final String MOD_ID = "doopmod";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static boolean modPadding = false;
 
 
     @Override
