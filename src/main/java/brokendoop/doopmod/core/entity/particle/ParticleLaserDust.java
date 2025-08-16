@@ -14,7 +14,6 @@ public class ParticleLaserDust extends Particle {
 	private final float oSize;
 
 
-
 	public ParticleLaserDust(World world, double x, double y, double z, double red, double green, double blue, float scale) {
 		this(world, x, y, z, 0, 0, 0, red, green, blue, scale);
 	}
@@ -27,6 +26,10 @@ public class ParticleLaserDust extends Particle {
 		this.yd = (motionY + (Math.random() * 2.0 - 1.0) * 0.4) * speed * 0.4 + 0.1;
 		this.zd = (motionZ + (Math.random() * 2.0 - 1.0) * 0.4) * speed * 0.4;
 		// this is for fixing the particle class messing shi up with normalization (im assuming that's the problem)
+
+		if (scale == 0) {
+			scale = 1.0f;
+		}
 
 		this.xd *= 0.1;
 		this.yd *= 0.1;

@@ -10,6 +10,7 @@ import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 import static net.minecraft.client.render.texture.stitcher.TextureRegistry.guiSpriteAtlas;
+import static net.minecraft.client.render.texture.stitcher.TextureRegistry.particleAtlas;
 
 
 public class DoopMod implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
@@ -29,6 +30,7 @@ public class DoopMod implements ModInitializer, GameStartEntrypoint, RecipeEntry
 		SoundRepository.registerNamespace(MOD_ID);
 		try {
 			TextureRegistry.initializeAllFiles(MOD_ID, guiSpriteAtlas, true);
+			TextureRegistry.initializeAllFiles(MOD_ID, particleAtlas, true);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

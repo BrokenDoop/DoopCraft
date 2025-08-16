@@ -33,6 +33,10 @@ public class ParticleExhaust extends Particle{
 		this.zd = (motionZ + (Math.random() * 2.0 - 1.0) * 0.4) * speed * 0.4;
 		// this is for fixing the particle class messing shi up with normalization (im assuming that's the problem)
 
+		if (scale == 0) {
+			scale = 1.0f;
+		}
+
 		this.bubbleXd = motionX;
 		this.bubbleYd = motionY;
 		this.bubbleZd = motionZ;

@@ -1,11 +1,11 @@
 package brokendoop.doopmod.core;
 
-import brokendoop.doopmod.client.renderer.MobRendererExoskeleton;
+import brokendoop.doopmod.client.renderer.*;
+import brokendoop.doopmod.core.entity.MobCremator;
 import brokendoop.doopmod.core.entity.MobExoskeleton;
 import brokendoop.doopmod.core.entity.MobZombieCrawling;
+import brokendoop.doopmod.core.entity.projectile.ProjectileGasFlame;
 import brokendoop.doopmod.core.entity.projectile.ProjectileLaser;
-import brokendoop.doopmod.client.renderer.EntityRendererLaser;
-import brokendoop.doopmod.client.renderer.MobRendererCrawlingZombie;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.EntityRenderDispatcher;
@@ -36,6 +36,12 @@ public class DoopModModels implements ModelEntrypoint {
 			model.setFull3D();
 			return model;
 		});
+		ModelHelper.setItemModel(DoopModItems.CREATIVE_FLAMETHROWER, ()-> {
+			ItemModelStandard model = new ItemModelStandard(DoopModItems.CREATIVE_FLAMETHROWER, MOD_ID);
+			model.setIcon("doopmod:item/creative_flamethrower");
+			model.setFull3D();
+			return model;
+		});
 
 	}
 
@@ -44,9 +50,11 @@ public class DoopModModels implements ModelEntrypoint {
 		//mobs
 		ModelHelper.setEntityModel(MobZombieCrawling.class, MobRendererCrawlingZombie::new);
 		ModelHelper.setEntityModel(MobExoskeleton.class, MobRendererExoskeleton::new);
+		ModelHelper.setEntityModel(MobCremator.class, MobRendererCremator::new);
 
 		//projectiles
 		ModelHelper.setEntityModel(ProjectileLaser.class, EntityRendererLaser::new);
+		ModelHelper.setEntityModel(ProjectileGasFlame.class, EntityRendererGasFlame::new);
 
 	}
 

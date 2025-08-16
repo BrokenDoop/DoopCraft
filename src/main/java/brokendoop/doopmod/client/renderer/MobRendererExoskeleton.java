@@ -31,6 +31,7 @@ public class MobRendererExoskeleton extends MobRenderer<MobExoskeleton> {
 			return false;
 		}
 	}
+
 	protected boolean prepareArmor(MobExoskeleton entity, int renderPass, float partialTick) {
 		return this.setSkeletronGlowBrightness(entity, renderPass, partialTick);
 	}

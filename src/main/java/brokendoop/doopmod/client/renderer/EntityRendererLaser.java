@@ -14,7 +14,7 @@ public class EntityRendererLaser extends EntityRenderer<ProjectileLaser> {
 	public EntityRendererLaser() {
 	}
 
-	public void render(Tessellator tessellator, ProjectileLaser laser, double x, double y, double z, float yaw, float renderPartialTicks) {
+	public void render(Tessellator tessellator, ProjectileLaser laser, double x, double y, double z, float yaw, float partialTicks) {
 		if (laser.yRotO != 0.0F || laser.xRotO != 0.0F) {
 			this.bindTexture("/assets/doopmod/textures/entity/lasers.png");
 			GL11.glEnable(3042);
@@ -26,8 +26,8 @@ public class EntityRendererLaser extends EntityRenderer<ProjectileLaser> {
 			GL11.glBlendFunc(770, 771);
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float)x, (float)y, (float)z);
-			GL11.glRotatef(laser.yRotO + (laser.yRot - laser.yRotO) * renderPartialTicks - 90.0F, 0.0F, 1.0F, 0.0F);
-			GL11.glRotatef(laser.xRotO + (laser.xRot - laser.xRotO) * renderPartialTicks, 0.0F, 0.0F, 1.0F);
+			GL11.glRotatef(laser.yRotO + (laser.yRot - laser.yRotO) * partialTicks - 90.0F, 0.0F, 1.0F, 0.0F);
+			GL11.glRotatef(laser.xRotO + (laser.xRot - laser.xRotO) * partialTicks, 0.0F, 0.0F, 1.0F);
 			byte laserType;
 			if (laser.getLaserType() == 7) {
 				laserType = 7;
@@ -55,12 +55,12 @@ public class EntityRendererLaser extends EntityRenderer<ProjectileLaser> {
 			GL11.glEnable(32826);
 
 			GL11.glRotatef(45.0F, 1.0F, 0.0F, 0.0F);
-			this.scaleLaser(laser, renderPartialTicks);
+			this.scaleLaser(laser, partialTicks);
 			GL11.glTranslatef(-4.0F, 0.0F, 0.0F);
 
 			for(int i = 0; i < 4; ++i) {
 				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
-				GL11.glNormal3f(0.0F, 0.0F, laser.getLaserScale(renderPartialTicks));
+				GL11.glNormal3f(0.0F, 0.0F, laser.getLaserScale(partialTicks));
 				tessellator.startDrawingQuads();
 				tessellator.addVertexWithUV(-6.5, -0.6, 0.0, bodyMinU, bodyMinV);
 				tessellator.addVertexWithUV(6.5, -0.6, 0.0, bodyMaxU, bodyMinV);

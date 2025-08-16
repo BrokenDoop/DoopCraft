@@ -26,7 +26,6 @@ public class MobExoskeleton extends MobMonster{
 
 	public int exhaustTime;
 
-	//couldn't find an existing field that tracks the mobs lifetime.
 
 	public MobExoskeleton(World world) {
 		super(world);
@@ -101,6 +100,7 @@ public class MobExoskeleton extends MobMonster{
 			double dX = entity.x - this.x;
 			double dZ = entity.z - this.z;
 
+			// 0.8 seems to be accurate for the projectile speed of 1.2 the red laser has
 			double projectileSpeed = 0.8;
 
 			double horizontalDistance = Math.sqrt(dX * dX + dZ * dZ);
@@ -141,9 +141,15 @@ public class MobExoskeleton extends MobMonster{
 
 	protected void damageEntity(int damage, DamageType type) {
 
-		//takes 50% fire dmg
-		if (type == DamageType.FIRE || type == DamageType.FALL) {
-			float halfDamage = damage / 2.0F;
+		// takes 50% of fire and fall damage
+		if (type == DamageType.FIRE || type == DamageType.FALL || type == DamageType.BLAST) {
+			float halfDamage = damage * 0.5F;
+
+			// takes 75% of blast damage
+			if (type == DamageType.BLAST) {
+				halfDamage = damage * 0.75F;
+			}
+
 			damage = (this.random.nextFloat() > 0.5F) ? (int)Math.ceil(halfDamage) : (int)Math.floor(halfDamage);
 		}
 

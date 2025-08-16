@@ -5,7 +5,6 @@ import brokendoop.doopmod.core.entity.particle.ParticleLaserDust;
 import com.mojang.nbt.tags.CompoundTag;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.particle.Particle;
-import net.minecraft.client.entity.particle.ParticleSmoke;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.EntityPainting;
 import net.minecraft.core.entity.Mob;
@@ -42,7 +41,7 @@ public class ProjectileLaser extends Projectile {
 	protected int laserDamage;
 	protected int laserFireDamage;
 	protected int laserType;
-	protected boolean doesLaserBelongToPlayer;
+	protected boolean doesLaserBelongToPlayer; // pretty sure we can get rid of every instance of this
 
 	public ProjectileLaser(World world) {
 		this(world, 0);
@@ -72,8 +71,8 @@ public class ProjectileLaser extends Projectile {
 		this.laserType = laserType;
 	}
 
-	public ProjectileLaser(World world, Mob entityLiving, boolean doesLaserBelongToPlayer, int laserType) {
-		super(world, entityLiving);
+	public ProjectileLaser(World world, Mob owner, boolean doesLaserBelongToPlayer, int laserType) {
+		super(world, owner);
 		this.xTile = -1;
 		this.yTile = -1;
 		this.zTile = -1;
@@ -83,8 +82,8 @@ public class ProjectileLaser extends Projectile {
 		this.doesLaserBelongToPlayer = false;
 		this.setDoesLaserBelongToPlayer(doesLaserBelongToPlayer);
 		this.laserType = laserType;
-		Vec3 lookDir = entityLiving.getLookAngle();
-		this.setHeading(lookDir.x, lookDir.y, lookDir.z,1.5F, 1.0F);
+		Vec3 lookDir = owner.getLookAngle();
+		this.setHeading(lookDir.x, lookDir.y, lookDir.z,0, 0);
 	}
 
 	protected void initProjectile() {
@@ -145,7 +144,6 @@ public class ProjectileLaser extends Projectile {
 			this.yRotO = this.yRot;
 			this.moveTo(this.x, this.y, this.z, this.yRot, this.xRot);
 		}
-
 	}
 
 
@@ -420,7 +418,7 @@ public class ProjectileLaser extends Projectile {
 	public void waterTick() {
 		if (this.world != null) {
 			for (int k = 0; k < 4; ++k) {
-				double particleDistance = (double) 0.25F;
+				double particleDistance = 0.25F;
 				this.world.spawnParticle("bubble", this.x - this.xd * particleDistance, this.y - this.yd * particleDistance, this.z - this.zd * particleDistance, this.xd, this.yd, this.zd, 0);
 			}
 			if (this.ticksSoundDelay >= 3) {
